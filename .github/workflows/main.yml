@@ -16,4 +16,5 @@ jobs:
         run: py -m pip install requests pandas
 
       - name: Запустить скрипт отчёта
+        shell: cmd
         run: py report.py
