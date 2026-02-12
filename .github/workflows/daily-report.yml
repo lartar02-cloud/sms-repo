@@ -29,4 +29,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add .
           git commit -m "Автообновление отчёта за $(date +%Y-%m-%d)" || echo "Нет изменений"
-          git push
+          git push 
