@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: '30 13 * * *'   # ~ 8:30 утра по твоему времени (Lima, -05), подкорректируй если нужно
   workflow_dispatch:        # позволяет запускать вручную кнопкой
+  pull_request:  
 
 jobs:
   generate-report:
