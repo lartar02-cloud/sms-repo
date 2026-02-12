@@ -17,4 +17,4 @@ jobs:
 
       - name: Запустить скрипт отчёта
         shell: cmd
-        run: py report.py
+        run: python report.py
