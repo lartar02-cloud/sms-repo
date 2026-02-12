@@ -16,5 +16,5 @@ jobs:
         run: py -m pip install requests pandas
 
       - name: Запустить скрипт отчёта
-        shell: cmd
-        run: python report.py
+        run: |
+         cmd /c C:\Users\larta\AppData\Local\Programs\Python\Python311\python.exe report.py
