@@ -1,0 +1,32 @@
+name: Ежедневный SMS отчёт
+
+on:
+  schedule:
+    - cron: '30 13 * * *'   # ~ 8:30 утра по твоему времени (Lima, -05), подкорректируй если нужно
+  workflow_dispatch:        # позволяет запускать вручную кнопкой
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Скачать репозиторий
+        uses: actions/checkout@v4
+
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Установить нужные библиотеки
+        run: pip install requests pandas
+
+      - name: Запустить скрипт отчёта
+        run: python report.py
+
+      - name: Сохранить изменения в репозиторий
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Автообновление отчёта за $(date +%Y-%m-%d)" || echo "Нет изменений"
+          git push
