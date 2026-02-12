@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Скачать репозиторий
         uses: actions/checkout@v4
+        
+      - name: Разрешаем скрипты
+        run: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
       - name: Установить Python
         uses: actions/setup-python@v5
