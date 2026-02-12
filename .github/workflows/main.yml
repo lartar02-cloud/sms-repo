@@ -17,4 +17,4 @@ jobs:
 
       - name: Запустить скрипт отчёта
         run: |
-         cmd /c C:\Users\larta\AppData\Local\Programs\Python\Python311\python.exe report.py
+         powershell -NoProfile -ExecutionPolicy Bypass -Command "C:\Users\larta\AppData\Local\Programs\Python\Python311\python.exe report.py"
